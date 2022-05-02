@@ -36,12 +36,12 @@ document
 
                     const foundBusiness = businesses.find(
                         // Your callback function goes here
-                        business => business.companyName.toLowerCase().includes(keyPressEvent.target.value.toLowerCase())
+                        business => business.purchasingAgent.nameFirst.toLowerCase().includes(keyPressEvent.target.value.toLowerCase()) || business.purchasingAgent.nameLast.toLowerCase().includes(keyPressEvent.target.value.toLowerCase())
                     )
 
-                    companySearchResultArticle.innerHTML = `<h2>${foundBusiness.companyName}</h2>
-                    <p>${foundBusiness.addressFullStreet}</p>
-                    <p>${foundBusiness.addressCity}, ${foundBusiness.addressStateCode} ${foundBusiness.addressZipCode}</p>`;
+                    companySearchResultArticle.innerHTML = `<h2>${foundBusiness.purchasingAgent.nameFirst} ${foundBusiness.purchasingAgent.nameLast}</h2>
+                    <h3>${foundBusiness.companyName}</h3>
+                    <h3>${foundBusiness.phoneWork}</h3>`;
                 }
         });
 
